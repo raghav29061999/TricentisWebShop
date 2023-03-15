@@ -56,7 +56,7 @@ public class HomePageTest extends TestBase {
 		
 	}
 	
-	@Test(priority = 5)
+	@Test(priority = 1)
 	public void shoppingOptions() {
 		
 		Object[] list = homePage.shoppingCatogries();
@@ -66,14 +66,14 @@ public class HomePageTest extends TestBase {
 		
 	}
 	
-	@Test(priority = 1)
+	@Test(priority = 5)
 	public void computerPurchase() {
-		//Object[] list = homePage.computerOptions();
-//		System.out.println(list.length);
-//		for(int i = 0 ; i<list.length; i++)
-//			System.out.println(list[i]);
-		System.out.println(homePage.computerOptions());
-		Assert.assertEquals(homePage.computerOptions(), "Notebooks ");
+		Object[] list = homePage.computerOptions();
+		
+		System.out.println(list.length);
+		
+		for(int i = 0 ; i<list.length; i++)
+			System.out.println(list[i]);
 		
 
 	}

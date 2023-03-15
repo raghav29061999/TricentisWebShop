@@ -32,8 +32,8 @@ public class HomePage extends TestBase{
 	@FindBy(xpath = "//ul[@class='list']//li")
 	List<WebElement> ShoppingOptions;
 	
-	@FindBy(xpath = "//div[@class = 'header-menu']//ul[@class='top-menu']//li//ul[@class = 'sublist firstLevel']//a[@href = '/notebooks']")
-	WebElement SubListShoppingOptions_Computer;
+	@FindBy(xpath = "//div[@class = 'header-menu']//ul[@class='top-menu']//li//ul[@class = 'sublist firstLevel']//li//a")
+	List<WebElement> SubListShoppingOptions_Computer;
 	
 	@FindBy(xpath = "//div[@class = 'header-menu']//ul[@class='top-menu']//li//a[@href='/electronics']")
 	List<WebElement> SubListShoppingOptions_Electronics;
@@ -83,29 +83,28 @@ public class HomePage extends TestBase{
 		 List<WebElement> list_1 = ShoppingOptions;		
 		 ArrayList<String> list_2 = new ArrayList<String>();
 		 
-		 for(WebElement p : list_1) 
+		 for(WebElement p : list_1) {
 				list_2.add(String.valueOf(p.getText()));
-		 
+				System.out.println(list_2);
+		 }
 		 Object[] list  = list_2.toArray();
 		 	 
 		 return  list;
 	}
 	
 	
-	public String computerOptions(){
+	public Object[] computerOptions(){
 		
-//		List<WebElement> list_1 = SubListShoppingOptions_Computer;	
-//		ArrayList<String> list_2 = new ArrayList<String>();
-//		
-//		for(WebElement p : list_1) {
-//			list_2.add(String.valueOf(p.getText()));
-//			System.out.println(list_2);
-//		}
+		List<WebElement> list_1 = SubListShoppingOptions_Computer;
+		ArrayList<String> list_2 = new ArrayList<String>();
 		
-		//Object[] list  = list_2.toArray();
-		String list = SubListShoppingOptions_Computer.getText();
-		 
-		return  list;
+		for(WebElement p : list_1) {
+			list_2.add(String.valueOf(p.getText()));
+			System.out.println(list_2);
+		}
+	 Object[] list  = list_2.toArray();
+	 	 
+	 return  list;
 		
 	}
 	
