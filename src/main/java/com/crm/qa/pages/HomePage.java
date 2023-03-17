@@ -32,8 +32,8 @@ public class HomePage extends TestBase{
 	@FindBy(xpath = "//ul[@class='list']//li")
 	List<WebElement> ShoppingOptions;
 	
-	@FindBy(xpath = "//div[@class = 'header-menu']//ul[@class='top-menu']//li//ul[@class = 'sublist firstLevel']//li//a")
-	List<WebElement> SubListShoppingOptions_Computer;
+	@FindBy(xpath = "//div[@class = 'header-menu']//ul[@class='top-menu']//li//ul[@class = 'sublist firstLevel']//li//a[contains(text() , 'Desktops')]")
+	WebElement SubListShoppingOptions_Computer;
 	
 	@FindBy(xpath = "//div[@class = 'header-menu']//ul[@class='top-menu']//li//a[@href='/electronics']")
 	List<WebElement> SubListShoppingOptions_Electronics;
@@ -85,7 +85,8 @@ public class HomePage extends TestBase{
 		 
 		 for(WebElement p : list_1) {
 				list_2.add(String.valueOf(p.getText()));
-				System.out.println(list_2);
+				System.out.println(p.toString());
+				//System.out.println(list_2);
 		 }
 		 Object[] list  = list_2.toArray();
 		 	 
@@ -93,18 +94,21 @@ public class HomePage extends TestBase{
 	}
 	
 	
-	public Object[] computerOptions(){
+	public String computerOptions(){
 		
-		List<WebElement> list_1 = SubListShoppingOptions_Computer;
-		ArrayList<String> list_2 = new ArrayList<String>();
+//		List<WebElement> list_12 = SubListShoppingOptions_Computer;
+//		ArrayList<String> list_21 = new ArrayList<String>();
+//		
+//		for(WebElement p : list_12) {
+//			list_21.add(String.valueOf(p.getText()));
+//			System.out.println(p.toString());
+//			//System.out.println(list_2);
+//		}
+//	 Object[] list  = list_21.toArray();
 		
-		for(WebElement p : list_1) {
-			list_2.add(String.valueOf(p.getText()));
-			System.out.println(list_2);
-		}
-	 Object[] list  = list_2.toArray();
+		return SubListShoppingOptions_Computer.getText();
 	 	 
-	 return  list;
+	 //return  list;
 		
 	}
 	
