@@ -9,6 +9,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import java.util.concurrent.TimeUnit;
+
+import com.crm.qa.util.Functions;
 import com.crm.qa.util.Testutil;
 import org.openqa.selenium.Platform;
 
@@ -17,10 +19,11 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestBase {
-	 public static WebDriver driver;
-	 
-	    
+	 public static WebDriver driver;	    
 	 public static Properties prop; 
+	 
+	 public Functions func = new Functions();
+	 
 	 
 	 public TestBase() {
 
