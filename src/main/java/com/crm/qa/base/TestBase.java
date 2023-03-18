@@ -29,7 +29,7 @@ public class TestBase {
 
 	        try {
 	            prop = new Properties();
-	            FileInputStream ip = new FileInputStream("C:\\Users\\singh\\eclipse-workspace\\DemoWebShop\\src\\main\\java\\com\\crm\\qa\\config\\config.properties");
+	            FileInputStream ip = new FileInputStream("C:\\Users\\singh\\eclipse-workspace\\DemoWebShop\\src\\test\\resources\\com\\crm\\qa\\config\\config.properties");
 	            prop.load(ip);
 
 	        }

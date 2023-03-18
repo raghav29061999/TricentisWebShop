@@ -48,6 +48,7 @@ public class UserRegister extends TestBase {
 	}
 	
 	
+	
 	@Test(priority = 4)
 	public void passwordNotMatching() {
 		
@@ -55,6 +56,8 @@ public class UserRegister extends TestBase {
 		
 		Assert.assertEquals(PasswordException, "The password and confirmation password do not match.");
 	}
+	
+	
 	
 	@AfterMethod
     public void teardown(){
