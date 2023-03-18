@@ -61,53 +61,46 @@ public class RegisterPage extends TestBase {
 	}
 	
 	
+	
+	public void accountSteps() {
+		
+		String x = func.randomPassword(10);
+	
+		
+		if(func.randomNumber(1, 2)%2==0)
+			personalDetails_GenderMale.click();
+		else
+			personalDetails_GenderFemale.click();
+		
+		personalDetails_FirstName.sendKeys(func.dateTime() + "1");
+		personalDetails_LastName.sendKeys(func.dateTime() + "2");
+		
+		personalDetails_Password.sendKeys(x);
+		personalDetails_ConfirmPassword.sendKeys(x);
+		
+		register_button.click();
+		
+		
+	}
+	
 	public String validateRegisterPageTitle(){
 	 	
         return driver.getTitle();
         
     }
 	
-	public String creatingNewUserAccount() {
-		
-		String x = func.randomPassword(10);
-	
-		
-		if(func.randomNumber(1, 2)%2==0)
-			personalDetails_GenderMale.click();
-		else
-			personalDetails_GenderFemale.click();
-		
-		personalDetails_FirstName.sendKeys(func.dateTime() + "1");
-		personalDetails_LastName.sendKeys(func.dateTime() + "2");
-		personalDetails_EmailId.sendKeys(func.dateTime() + "@gmail.com");
-		personalDetails_Password.sendKeys(x);
-		personalDetails_ConfirmPassword.sendKeys(x);
-		register_button.click();
+	public String creatingNewUserAccount() {		
+		personalDetails_EmailId.sendKeys(func.dateTime() + "@gmail.com");		
+		accountSteps();		
 		String ConfirmationMessage = AccountCreationMessage.getText();
 		personalDetails_ContinueAccount.click();
-		return ConfirmationMessage;
-		
-		
+		return ConfirmationMessage;		
 	}
 	
 	public String verifyingExistingAccount(String un) {
 		
-		String x = func.randomPassword(10);
-	
-		
-		if(func.randomNumber(1, 2)%2==0)
-			personalDetails_GenderMale.click();
-		else
-			personalDetails_GenderFemale.click();
-		
-		personalDetails_FirstName.sendKeys(func.dateTime() + "1");
-		personalDetails_LastName.sendKeys(func.dateTime() + "2");
-		personalDetails_EmailId.sendKeys(un);
-		
-		personalDetails_Password.sendKeys(x);
-		personalDetails_ConfirmPassword.sendKeys(x);
-		register_button.click();
-		
+		personalDetails_EmailId.sendKeys(un);		
+		accountSteps();
 		return ExistingAccountMessage.getText();		
 		
 	}

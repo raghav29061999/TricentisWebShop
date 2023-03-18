@@ -22,7 +22,7 @@ public class TestBase {
 	 public static WebDriver driver;	    
 	 public static Properties prop; 
 	 
-	 public Functions func = new Functions();
+	 public  Functions func = new Functions();
 	 
 	 
 	 public TestBase() {
