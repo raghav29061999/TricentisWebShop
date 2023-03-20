@@ -38,6 +38,7 @@ public class HomePage extends TestBase{
 	@FindBy(xpath = "//div[@class = 'header-menu']//ul[@class='top-menu']//li//a[@href='/electronics']")
 	List<WebElement> SubListShoppingOptions_Electronics;
 	
+	SearchPage search = new SearchPage();
 	
 	public HomePage() {
 		PageFactory.initElements(driver, this);
@@ -68,27 +69,15 @@ public class HomePage extends TestBase{
 	
 	public String searchOption(String searchText) {
 		
-		SearchBox.sendKeys(searchText);
-		SearchBtn.click();
-		driver.manage().timeouts().pageLoadTimeout(Testutil.INTERNAL_PAGE_LOAD, TimeUnit.SECONDS);
-	 	driver.manage().timeouts().implicitlyWait(Testutil.INTERNAL_IMPLICIT_WAIT, TimeUnit.SECONDS);
-	 	
-		return driver.getTitle();  //<title>Demo Web Shop. Search</title>
+		 return search.BasicSearch(searchText); //<title>Demo Web Shop. Search</title>
 		
 	}
 	
 	
 	public 	Object[] shoppingCatogries(){
 		
-		 List<WebElement> list_1 = ShoppingOptions;		
-		 ArrayList<String> list_2 = new ArrayList<String>();
-		 
-		 for(WebElement p : list_1) {
-				list_2.add(String.valueOf(p.getText()));
-				System.out.println(p.toString());
-				//System.out.println(list_2);
-		 }
-		 Object[] list  = list_2.toArray();
+		
+		 Object[] list  = func.pullingWebList(ShoppingOptions);
 		 	 
 		 return  list;
 	}

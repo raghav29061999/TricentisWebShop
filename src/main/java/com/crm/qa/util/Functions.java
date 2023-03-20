@@ -3,6 +3,10 @@ package com.crm.qa.util;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.openqa.selenium.WebElement;
 
 public class Functions {
 	
@@ -33,8 +37,20 @@ public class Functions {
 	}
 	
 	
-}
+	public static Object[] pullingWebList(List<WebElement> elements) {
 
+		ArrayList<String> list_1 = new ArrayList<String>();
+		
+		for(WebElement p : elements) 
+			list_1.add(String.valueOf(p.getText()));
+
+		Object[] list = list_1.toArray();
+		
+		return list;
+	
+	
+}
+}
 
 
 
