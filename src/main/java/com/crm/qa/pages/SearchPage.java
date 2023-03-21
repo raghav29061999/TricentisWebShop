@@ -21,6 +21,16 @@ public class SearchPage extends TestBase{
 	@FindBy(xpath = "//h2//a")
 	List<WebElement> SearchResults;
 	
+	@FindBy(id = "Q")
+	WebElement SearchBoxSearchPage;
+	
+	@FindBy(xpath = "//div[@class='search-results']//div[@class='product-list']")
+	WebElement ViewList;
+	
+	@FindBy(xpath = "//div[@class='search-results']//div[@class='product-grid']")
+	WebElement ViewGrid;
+	
+	
 	
 	public SearchPage() {
 		
@@ -46,6 +56,17 @@ public class SearchPage extends TestBase{
 		 Object[] list = func.pullingWebList(SearchResults);
 		 return list;
 				 		
+	}
+	
+	
+	public boolean VerifyView(String searchText) {
+		BasicSearch(searchText);
+		
+		if (ViewGrid.isDisplayed()==true)
+			return true;
+		else
+			return false;
+		
 	}
 	
 	

@@ -69,6 +69,7 @@ public class HomePage extends TestBase{
 	
 	public String searchOption(String searchText) {
 		
+
 		 return search.BasicSearch(searchText); //<title>Demo Web Shop. Search</title>
 		
 	}
